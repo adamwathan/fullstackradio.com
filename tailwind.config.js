@@ -1,7 +1,7 @@
 module.exports = {
   future: 'all',
   experimental: 'all',
-  purge: [],
+  purge: ['./pages/**/*.js', './components/**/*.js'],
   theme: {
     extend: {
       typography: (theme) => ({
