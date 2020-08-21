@@ -8,15 +8,13 @@ export async function getStaticProps() {
   console.log(feed.items[1])
   return {
     props: {
-      episodes: feed.items
-        .slice(0, 10)
-        .map(({ id, title, description, created, itunes_episode }) => ({
-          id,
-          number: itunes_episode,
-          title,
-          description,
-          created,
-        })),
+      episodes: feed.items.map(({ id, title, description, created, itunes_episode }) => ({
+        id,
+        number: itunes_episode,
+        title,
+        description,
+        created,
+      })),
     },
   }
 }
@@ -79,13 +77,6 @@ export default function Home({ episodes }) {
               </div>
             )
           })}
-        </div>
-        <div className="mt-6 grid gap-16 border-t-2 border-gray-100 pt-10">
-          <Link href="/all">
-            <a className="text-base leading-6 font-semibold text-teal-500 hover:text-teal-700">
-              All episodes &rarr;
-            </a>
-          </Link>
         </div>
       </div>
     </div>
