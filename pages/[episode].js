@@ -59,7 +59,7 @@ export default function Home({ episode }) {
           </p>
           <div>
             <h2 className="mt-2 text-xl leading-7 font-semibold text-gray-900">
-              <Link href="/[episode].js" as={`/${episode.number}`}>
+              <Link href="/[episode]" as={`/${episode.number}`}>
                 <a>{episode.title}</a>
               </Link>
             </h2>
