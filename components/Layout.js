@@ -1,8 +1,47 @@
 import Link from 'next/link'
+import Head from 'next/head'
+import { useRouter } from 'next/router'
 
-export default function Layout({ children }) {
+export default function Layout({ children, meta: pageMeta }) {
+  const router = useRouter()
+  const meta = {
+    title: 'Full Stack Radio',
+    description:
+      'A podcast for developers interested in building great software products. Hosted by Adam Wathan.',
+    cardImage:
+      'https://images.transistor.fm/file/transistor/images/social_images/site/5064/social-full-stack-radio.jpg',
+    feed: 'https://feeds.transistor.fm/full-stack-radio',
+    keywords: ['technology', 'software', 'web', 'development', 'product', 'startup'],
+    ...pageMeta,
+  }
+
   return (
     <div className="bg-white pt-16 pb-20 px-4 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8">
+      <Head>
+        <title>{meta.title}</title>
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <meta content={meta.description} name="description" />
+        <meta content={meta.keywords.join(', ')} name="keywords" />
+        <meta property="og:url" content={`https://fullstackradio.com${router.asPath}`} />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Full Stack Radio" />
+        <meta property="og:description" content={meta.description} />
+        <meta property="og:title" content={meta.title} />
+        <meta property="og:image" content={meta.cardImage} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@fullstackradio" />
+        <meta name="twitter:title" content={meta.title} />
+        <meta name="twitter:description" content={meta.description} />
+        <meta name="twitter:image" content={meta.cardImage} />
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title="Full Stack Radio"
+          href={meta.feed}
+        />
+      </Head>
       <div className="relative max-w-2xl mx-auto">
         <div className="flex flex-col items-center space-y-8 sm:space-y-0 sm:flex-row sm:space-x-8">
           <Link href="/">

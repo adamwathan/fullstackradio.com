@@ -24,11 +24,12 @@ export async function getStaticProps() {
 const dateTemplate = tinytime('{MM} {DD}, {YYYY}')
 
 export default function Home({ episodes }) {
+  const meta = {
+    title: 'All episodes • Full Stack Radio',
+  }
+
   return (
-    <Layout>
-      <Head>
-        <title>All episodes &middot; Full Stack Radio</title>
-      </Head>
+    <Layout meta={meta}>
       <div className="grid gap-12 border-t-2 border-gray-100 py-8">
         {episodes.map((episode) => {
           const date = new Date(episode.created)

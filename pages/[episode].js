@@ -42,8 +42,13 @@ const dateTemplate = tinytime('{MM} {DD}, {YYYY}')
 
 export default function Home({ episode }) {
   const date = new Date(episode.created)
+  const meta = {
+    title: `${episode.title}`,
+    description: episode.description,
+  }
+
   return (
-    <Layout>
+    <Layout meta={meta}>
       <Head>
         <title>{episode.title} &middot; Full Stack Radio</title>
       </Head>
