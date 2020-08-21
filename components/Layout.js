@@ -46,6 +46,7 @@ export default function Layout({ children, meta: pageMeta }) {
         <div className="flex flex-col items-center space-y-8 sm:space-y-0 sm:flex-row sm:space-x-8">
           <Link href="/">
             <a className="flex-shrink-0">
+              <span class="sr-only">Home</span>
               <img
                 className="h-28 w-28 sm:h-36 sm:w-36 rounded-lg object-cover"
                 src="/podcast-cover.jpg"

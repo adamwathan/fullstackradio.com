@@ -58,11 +58,11 @@ export default function Home({ episode }) {
             <time dateTime="2020-03-16">{dateTemplate.render(date)}</time>
           </p>
           <div>
-            <h3 className="mt-2 text-xl leading-7 font-semibold text-gray-900">
+            <h2 className="mt-2 text-xl leading-7 font-semibold text-gray-900">
               <Link href="/[episode].js" as={`/${episode.number}`}>
                 <a>{episode.title}</a>
               </Link>
-            </h3>
+            </h2>
             <p className="mt-3 text-base leading-6 text-gray-600">{episode.description}</p>
 
             <iframe
