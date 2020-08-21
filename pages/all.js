@@ -40,7 +40,7 @@ export default function Home({ episodes }) {
               </p>
               <div>
                 <h2 className="mt-2 text-xl leading-7 font-semibold text-gray-900">
-                  <Link href="/[episode]" as={`/${episode.number}`}>
+                  <Link href={`/${episode.number}`}>
                     <a>{episode.title}</a>
                   </Link>
                 </h2>
@@ -48,7 +48,7 @@ export default function Home({ episodes }) {
               </div>
 
               <div className="mt-3">
-                <Link href="/[episode]" as={`/${episode.number}`}>
+                <Link href={`/${episode.number}`}>
                   <a className="text-base leading-6 font-semibold text-teal-600 hover:text-teal-700">
                     Show notes
                   </a>
