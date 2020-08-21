@@ -50,12 +50,11 @@ export default function Home({ episodes }) {
               </div>
 
               <div className="mt-3">
-                <a
-                  href="/"
-                  className="text-base leading-6 font-semibold text-teal-500 hover:text-teal-700"
-                >
-                  Show notes
-                </a>
+                <Link href="/[episode].js" as={`/${episode.number}`}>
+                  <a className="text-base leading-6 font-semibold text-teal-500 hover:text-teal-700">
+                    Show notes
+                  </a>
+                </Link>
               </div>
             </div>
           )
