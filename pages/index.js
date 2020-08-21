@@ -24,6 +24,7 @@ export async function getStaticProps() {
 }
 
 const dateTemplate = tinytime('{MM} {DD}, {YYYY}')
+const dateTimeTemplate = tinytime('{YYYY}-{Mo}-{DD}')
 
 export default function Home({ episodes }) {
   const meta = {
@@ -38,7 +39,7 @@ export default function Home({ episodes }) {
           return (
             <div key={episode.id}>
               <p className="text-sm leading-5 text-gray-500">
-                <time dateTime="2020-03-16">{dateTemplate.render(date)}</time>
+                <time dateTime={dateTimeTemplate.render(date)}>{dateTemplate.render(date)}</time>
               </p>
               <div>
                 <h2 className="mt-2 text-xl leading-7 font-semibold text-gray-900">
