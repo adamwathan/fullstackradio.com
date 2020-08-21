@@ -28,7 +28,7 @@ export default function Home({ episodes }) {
       <Head>
         <title>All episodes &middot; Full Stack Radio</title>
       </Head>
-      <div className="grid gap-16 border-t-2 border-gray-100 py-10">
+      <div className="grid gap-12 border-t-2 border-gray-100 py-8">
         {episodes.map((episode) => {
           const date = new Date(episode.created)
           return (

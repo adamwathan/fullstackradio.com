@@ -30,7 +30,7 @@ export default function Home({ episodes }) {
       <Head>
         <title>Full Stack Radio</title>
       </Head>
-      <div className="mt-6 grid gap-16 border-t-2 border-gray-100 py-10">
+      <div className="mt-6 grid gap-12 border-t-2 border-gray-100 py-8">
         {episodes.map((episode) => {
           const date = new Date(episode.created)
           return (

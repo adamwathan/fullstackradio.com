@@ -46,7 +46,7 @@ export default function Home({ episode }) {
       <Head>
         <title>{episode.title} &middot; Full Stack Radio</title>
       </Head>
-      <div className="grid gap-16 border-t-2 border-gray-100 pt-10">
+      <div className="border-t-2 border-gray-100 pt-8">
         <div>
           <p className="text-sm leading-5 text-gray-500">
             <time dateTime="2020-03-16">{dateTemplate.render(date)}</time>

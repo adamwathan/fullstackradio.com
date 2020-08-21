@@ -50,7 +50,7 @@ export default function Layout({ children }) {
             </div>
           </div>
         </div>
-        <div className="mt-6">{children}</div>
+        <div className="mt-7">{children}</div>
       </div>
     </div>
   )
