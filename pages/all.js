@@ -17,6 +17,7 @@ export async function getStaticProps() {
         created,
       })),
     },
+    revalidate: 1,
   }
 }
 
