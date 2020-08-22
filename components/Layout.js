@@ -43,7 +43,7 @@ export default function Layout({ children, meta: pageMeta }) {
         />
       </Head>
       <div className="relative max-w-2xl mx-auto">
-        <div className="flex flex-col items-center space-y-8 sm:space-y-0 sm:flex-row sm:space-x-8">
+        <div className="flex flex-col items-center space-y-8 sm:items-start sm:space-y-0 sm:flex-row sm:space-x-8">
           <Link href="/">
             <a className="flex-shrink-0">
               <span class="sr-only">Home</span>
