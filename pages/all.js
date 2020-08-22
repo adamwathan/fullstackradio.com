@@ -35,23 +35,23 @@ export default function Home({ episodes }) {
         {episodes.map((episode) => {
           const date = new Date(episode.created)
           return (
-            <div key={episode.id}>
+            <div key={episode.id} className="relative">
               <p className="text-sm leading-5 text-gray-500">
                 <time dateTime={dateTimeTemplate.render(date)}>{dateTemplate.render(date)}</time>
               </p>
               <div>
                 <h2 className="mt-2 text-xl leading-7 font-semibold text-gray-900">
-                  <Link href={`/${episode.number}`}>
-                    <a>{episode.title}</a>
-                  </Link>
+                  {episode.title}
                 </h2>
                 <p className="mt-3 text-base leading-6 text-gray-500">{episode.description}</p>
               </div>
 
               <div className="mt-3">
                 <Link href={`/${episode.number}`}>
-                  <a className="text-base leading-6 font-semibold text-teal-600 hover:text-teal-700">
+                  <a className="text-base leading-6 font-semibold text-teal-600 hover:text-teal-700 focus:outline-none focus:underline">
+                    <span className="sr-only">{episode.title}</span>
                     Show notes
+                    <span className="absolute inset-0"></span>
                   </a>
                 </Link>
               </div>
