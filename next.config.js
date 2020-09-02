@@ -6,6 +6,11 @@ module.exports = {
         destination: '/:number',
         permanent: true,
       },
+      {
+        source: '/episodes',
+        destination: '/all',
+        permanent: true,
+      },
     ]
   },
 }
