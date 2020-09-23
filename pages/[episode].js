@@ -21,7 +21,7 @@ export async function getStaticProps({ params }) {
         }))
         .find(({ number }) => number === params.episode),
     },
-    revalidate: 2,
+    revalidate: 1,
   }
 }
 
