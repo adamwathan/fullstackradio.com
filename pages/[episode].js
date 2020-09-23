@@ -3,6 +3,7 @@ import Feed from 'rss-to-json'
 import tinytime from 'tinytime'
 import Link from 'next/link'
 import Layout from '../components/Layout'
+import { useRouter } from 'next/router'
 
 export async function getStaticProps({ params }) {
   const feed = await Feed.load('https://feeds.transistor.fm/full-stack-radio')
@@ -34,7 +35,7 @@ export async function getStaticPaths() {
         episode: itunes_episode,
       },
     })),
-    fallback: false,
+    fallback: true,
   }
 }
 
@@ -42,6 +43,16 @@ const dateTemplate = tinytime('{MM} {DD}, {YYYY}')
 const dateTimeTemplate = tinytime('{YYYY}-{Mo}-{DD}')
 
 export default function Home({ episode }) {
+  const router = useRouter()
+
+  if (router.isFallback) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <p class="text-2xl leading-8 font-semibold text-gray-900">Loading...</p>
+      </div>
+    )
+  }
+
   const date = new Date(episode.created)
   const meta = {
     title: `${episode.title}`,
