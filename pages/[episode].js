@@ -11,12 +11,12 @@ export async function getStaticProps({ params }) {
   return {
     props: {
       episode: feed.items
-        .map(({ id, url, title, description, content, created, itunes_episode }) => ({
+        .map(({ id, url, title, content, created, itunes_episode, itunes_summary }) => ({
           id,
           embed: url.replace('.fm/s', '.fm/e') + '/dark',
           number: itunes_episode,
           title,
-          description,
+          description: itunes_summary,
           content,
           created,
         }))

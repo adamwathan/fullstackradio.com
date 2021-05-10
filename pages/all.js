@@ -9,11 +9,11 @@ export async function getStaticProps() {
 
   return {
     props: {
-      episodes: feed.items.map(({ id, title, description, created, itunes_episode }) => ({
+      episodes: feed.items.map(({ id, title, itunes_summary, created, itunes_episode }) => ({
         id,
         number: itunes_episode,
         title,
-        description,
+        description: itunes_summary,
         created,
       })),
     },
