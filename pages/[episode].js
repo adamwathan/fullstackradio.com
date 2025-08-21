@@ -5,6 +5,19 @@ import Link from 'next/link'
 import Layout from '../components/Layout'
 import { useRouter } from 'next/router'
 
+function normalizeSummary(summary) {
+  if (!summary) return ''
+  
+  // Check if the summary contains HTML tags - if so, return empty string
+  // to avoid duplication with the content
+  if (summary.includes('<p>') && summary.includes('</p>')) {
+    return ''
+  }
+  
+  // Return the summary as-is if it's not in HTML format
+  return summary
+}
+
 export async function getStaticProps({ params }) {
   const feed = await Feed.load('https://feeds.transistor.fm/full-stack-radio')
 
@@ -16,7 +29,7 @@ export async function getStaticProps({ params }) {
           embed: url.replace('.fm/s', '.fm/e') + '/dark',
           number: itunes_episode,
           title,
-          description: itunes_summary,
+          description: normalizeSummary(itunes_summary),
           content,
           created,
         }))
@@ -75,7 +88,9 @@ export default function Home({ episode }) {
                 <a>{episode.title}</a>
               </Link>
             </h2>
-            <p className="mt-3 text-base leading-6 text-gray-600">{episode.description}</p>
+            {episode.description && (
+              <p className="mt-3 text-base leading-6 text-gray-600">{episode.description}</p>
+            )}
 
             <iframe
               className="my-8"

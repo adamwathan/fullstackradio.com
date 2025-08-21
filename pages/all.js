@@ -4,6 +4,23 @@ import tinytime from 'tinytime'
 import Link from 'next/link'
 import Layout from '../components/Layout'
 
+function normalizeSummary(summary) {
+  if (!summary) return ''
+  
+  // Check if the summary contains HTML tags
+  if (summary.includes('<p>') && summary.includes('</p>')) {
+    // Extract the content of the first <p> tag
+    const match = summary.match(/<p>(.*?)<\/p>/)
+    if (match && match[1]) {
+      // Return the content without any HTML tags
+      return match[1].replace(/<[^>]*>/g, '')
+    }
+  }
+  
+  // Return the summary as-is if it's not in HTML format
+  return summary
+}
+
 export async function getStaticProps() {
   const feed = await Feed.load('https://feeds.transistor.fm/full-stack-radio')
 
@@ -13,7 +30,7 @@ export async function getStaticProps() {
         id,
         number: itunes_episode,
         title,
-        description: itunes_summary,
+        description: normalizeSummary(itunes_summary),
         created,
       })),
     },
