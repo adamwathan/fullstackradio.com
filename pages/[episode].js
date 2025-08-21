@@ -61,7 +61,7 @@ export default function Home({ episode }) {
   if (router.isFallback) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <p class="text-2xl leading-8 font-semibold text-gray-900">Loading...</p>
+        <p className="text-2xl leading-8 font-semibold text-gray-900">Loading...</p>
       </div>
     )
   }
@@ -85,7 +85,7 @@ export default function Home({ episode }) {
           <div>
             <h2 className="mt-2 text-xl leading-7 font-semibold text-gray-900">
               <Link href={`/${episode.number}`}>
-                <a>{episode.title}</a>
+                {episode.title}
               </Link>
             </h2>
             {episode.description && (

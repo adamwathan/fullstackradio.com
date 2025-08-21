@@ -64,12 +64,10 @@ export default function Home({ episodes }) {
               </div>
 
               <div className="mt-3">
-                <Link href={`/${episode.number}`}>
-                  <a className="text-base leading-6 font-semibold text-teal-600 hover:text-teal-700 focus:outline-none focus:underline">
-                    <span className="sr-only">{episode.title}</span>
-                    Show notes
-                    <span className="absolute inset-0"></span>
-                  </a>
+                <Link href={`/${episode.number}`} className="text-base leading-6 font-semibold text-teal-600 hover:text-teal-700 focus:outline-none focus:underline">
+                  <span className="sr-only">{episode.title}</span>
+                  Show notes
+                  <span className="absolute inset-0"></span>
                 </Link>
               </div>
             </div>
