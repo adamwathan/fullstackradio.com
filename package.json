@@ -2,6 +2,9 @@
   "name": "fullstackradio.com",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "scripts": {
     "dev": "NODE_OPTIONS='--openssl-legacy-provider' next dev",
     "build": "NODE_OPTIONS='--openssl-legacy-provider' next build",
